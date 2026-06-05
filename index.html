@@ -5,223 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mehr-un-Nisa | Junior Web Developer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-    :root {
-      --bg:        #0F1117;
-      --bg2:       #151820;
-      --card:      #1C1F2A;
-      --card2:     #222638;
-      --border:    #2A2D3E;
-      --accent:    #38BDF8;
-      --accent-lt: #0F2942;
-      --accent-md: #1E5070;
-      --accent-dk: #0EA5E9;
-      --dark:      #F1F5F9;
-      --body:      #CBD5E1;
-      --muted:     #64748B;
-      --shadow:    0 2px 12px rgba(0,0,0,0.3);
-      --shadow-md: 0 6px 30px rgba(0,0,0,0.4);
-    }
-
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--body); overflow-x: hidden; line-height: 1.6; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(15,17,23,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      padding: 0 6%; height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo { font-family: 'Sora', sans-serif; font-size: 1.1rem; color: var(--dark); letter-spacing: -0.3px; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { list-style: none; display: flex; gap: 2rem; }
-    .nav-links a { text-decoration: none; font-size: 0.87rem; font-weight: 500; color: var(--muted); transition: color 0.2s; }
-    .nav-links a:hover { color: var(--accent); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 7rem 6% 5rem;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      position: relative; overflow: hidden;
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(56,189,248,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-    }
-    .hero-glow {
-      position: absolute; top: -150px; right: -100px;
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(56,189,248,0.09) 0%, transparent 65%);
-      border-radius: 50%; pointer-events: none;
-    }
-    .hero-glow2 {
-      position: absolute; bottom: -100px; left: 5%;
-      width: 350px; height: 350px;
-      background: radial-gradient(circle, rgba(56,189,248,0.05) 0%, transparent 70%);
-      border-radius: 50%; pointer-events: none;
-    }
-    .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; position: relative; z-index: 1; }
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: var(--accent-lt); color: var(--accent);
-      font-size: 0.76rem; font-weight: 600; letter-spacing: 0.5px;
-      padding: 0.38rem 1rem; border-radius: 2rem;
-      border: 1px solid var(--accent-md); margin-bottom: 1.4rem;
-    }
-    .hero-pill::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 2s infinite; }
-    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
-    .hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.12; color: var(--dark); margin-bottom: 1.2rem; letter-spacing: -0.5px; }
-    .hero h1 span { color: var(--accent); }
-    .hero-sub { font-size: 1rem; color: var(--muted); max-width: 500px; line-height: 1.8; margin-bottom: 2rem; }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.2rem; }
-    .chip { background: var(--card); border: 1px solid var(--border); color: var(--body); font-size: 0.79rem; font-weight: 500; padding: 0.3rem 0.85rem; border-radius: 0.3rem; }
-    .hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-    .btn { padding: 0.72rem 1.6rem; border-radius: 0.4rem; font-size: 0.88rem; font-weight: 600; text-decoration: none; transition: all 0.2s; font-family: 'Inter', sans-serif; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.4rem; }
-    .btn-primary { background: var(--accent); color: #0F1117; }
-    .btn-primary:hover { background: var(--accent-dk); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(56,189,248,0.3); }
-    .btn-outline { background: transparent; color: var(--dark); border: 1.5px solid var(--border); }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-
-    .hero-card { background: var(--card); border: 1px solid var(--border); border-radius: 1.1rem; padding: 2rem 1.7rem; text-align: center; box-shadow: var(--shadow-md); min-width: 210px; }
-    .avatar { width: 88px; height: 88px; border-radius: 50%; background: linear-gradient(135deg, var(--accent) 0%, #0EA5E9 100%); display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-size: 2rem; color: #0F1117; font-weight: 700; margin: 0 auto 1rem; }
-    .hero-card h3 { font-size: 0.94rem; font-weight: 700; color: var(--dark); margin-bottom: 0.2rem; }
-    .hero-card p { font-size: 0.79rem; color: var(--muted); margin-bottom: 1.2rem; line-height: 1.5; }
-    .open-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25); color: #4ADE80; font-size: 0.73rem; font-weight: 600; padding: 0.33rem 0.85rem; border-radius: 2rem; }
-    .open-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4ADE80; animation: blink 2s infinite; }
-
-    /* SECTIONS */
-    .section { padding: 5.5rem 6%; }
-    .section-inner { max-width: 1100px; margin: 0 auto; }
-    .sec-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
-    .sec-title { font-family: 'Sora', sans-serif; font-size: clamp(1.5rem, 2.5vw, 2rem); color: var(--dark); margin-bottom: 0.5rem; letter-spacing: -0.3px; }
-    .sec-desc { font-size: 0.91rem; color: var(--muted); max-width: 480px; line-height: 1.7; }
-    .sec-line { width: 36px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 0.8rem; margin-bottom: 3rem; }
-
-    /* ABOUT */
-    #about { background: var(--bg2); }
-    .about-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 4rem; align-items: start; }
-    .about-text p { font-size: 0.95rem; color: var(--body); line-height: 1.85; margin-bottom: 1rem; }
-    .about-text strong { color: var(--dark); font-weight: 600; }
-    .stats { display: flex; gap: 2.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-    .stat-num { font-family: 'Sora', sans-serif; font-size: 1.9rem; color: var(--accent); font-weight: 700; }
-    .stat-lbl { font-size: 0.76rem; color: var(--muted); margin-top: 0.1rem; }
-    .info-box { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; box-shadow: var(--shadow); }
-    .info-box h4 { font-size: 0.69rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .info-row { display: flex; justify-content: space-between; padding: 0.52rem 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
-    .info-row:last-child { border-bottom: none; }
-    .info-row span:first-child { color: var(--muted); }
-    .info-row span:last-child { color: var(--dark); font-weight: 500; text-align: right; max-width: 55%; }
-
-    /* SKILLS */
-    #skills { background: var(--bg); }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
-    .skill-box { background: var(--card); border: 1px solid var(--border); border-radius: 0.85rem; padding: 1.4rem 1.5rem; transition: all 0.22s; box-shadow: var(--shadow); }
-    .skill-box:hover { border-color: var(--accent-md); transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .skill-box-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .skill-tag { background: var(--bg2); border: 1px solid var(--border); color: var(--body); font-size: 0.79rem; font-weight: 500; padding: 0.28rem 0.75rem; border-radius: 0.3rem; }
-
-    /* PROJECTS */
-    #projects { background: var(--bg2); }
-    .featured-card { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0.9rem; padding: 1.8rem 2rem; margin-bottom: 1.2rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; box-shadow: var(--shadow); transition: all 0.22s; }
-    .featured-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--accent); }
-    .feat-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.45rem; }
-    .featured-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.35rem; font-family: 'Sora', sans-serif; }
-    .featured-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.9rem; max-width: 500px; }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .ptag { background: var(--accent-lt); border: 1px solid var(--accent-md); color: var(--accent); font-size: 0.71rem; font-weight: 600; padding: 0.22rem 0.65rem; border-radius: 0.25rem; }
-    .live-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--accent); color: #0F1117; padding: 0.65rem 1.35rem; border-radius: 0.4rem; text-decoration: none; font-size: 0.84rem; font-weight: 700; white-space: nowrap; transition: all 0.2s; }
-    .live-btn:hover { background: var(--accent-dk); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(56,189,248,0.3); }
-
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.1rem; margin-top: 1.5rem; }
-    .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 0.85rem; padding: 1.5rem; transition: all 0.22s; box-shadow: var(--shadow); }
-    .project-card:hover { border-color: var(--accent-md); transform: translateY(-3px); box-shadow: var(--shadow-md); }
-    .project-icon { width: 42px; height: 42px; border-radius: 0.55rem; background: var(--accent-lt); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 0.9rem; }
-    .project-card h3 { font-size: 0.93rem; font-weight: 700; color: var(--dark); margin-bottom: 0.38rem; }
-    .project-card p { font-size: 0.81rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.9rem; }
-    .project-techs { display: flex; flex-wrap: wrap; gap: 0.38rem; }
-    .tech { background: var(--bg); border: 1px solid var(--border); color: var(--muted); font-size: 0.71rem; font-weight: 600; padding: 0.18rem 0.55rem; border-radius: 0.25rem; }
-
-    /* EDUCATION */
-    #education { background: var(--bg); }
-    .edu-list { display: flex; flex-direction: column; gap: 1rem; }
-    .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 0.85rem; padding: 1.4rem 1.8rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; transition: border-color 0.2s; box-shadow: var(--shadow); }
-    .edu-card:hover { border-color: var(--accent-md); }
-    .edu-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.2rem; }
-    .edu-card p { font-size: 0.82rem; color: var(--muted); }
-    .edu-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; }
-    .edu-year { font-size: 0.77rem; font-weight: 600; color: var(--muted); }
-    .edu-badge { font-size: 0.69rem; font-weight: 700; padding: 0.22rem 0.7rem; border-radius: 2rem; background: var(--accent-lt); color: var(--accent); border: 1px solid var(--accent-md); }
-    .edu-badge.active { background: rgba(34,197,94,0.1); color: #4ADE80; border-color: rgba(34,197,94,0.3); }
-
-    /* CONTACT */
-    #contact { background: var(--bg2); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
-    .contact-info p { font-size: 0.94rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.8rem; }
-    .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
-    .contact-link { display: flex; align-items: center; gap: 0.9rem; background: var(--card); border: 1px solid var(--border); border-radius: 0.6rem; padding: 0.85rem 1.1rem; text-decoration: none; color: var(--body); font-size: 0.87rem; transition: all 0.2s; box-shadow: var(--shadow); }
-    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(3px); }
-    .contact-link-icon { font-size: 1.1rem; width: 26px; text-align: center; }
-    .contact-link strong { display: block; font-size: 0.84rem; font-weight: 600; color: var(--dark); }
-    .contact-link span { font-size: 0.77rem; color: var(--muted); }
-
-    .contact-box { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 2rem; box-shadow: var(--shadow); }
-    .contact-box h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.5rem; }
-    .contact-box p { font-size: 0.86rem; color: var(--muted); margin-bottom: 1.6rem; line-height: 1.7; }
-
-    /* FOOTER */
-    footer { background: #090B10; color: var(--muted); border-top: 1px solid var(--border); padding: 2rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.81rem; }
-    footer strong { color: var(--dark); }
-    footer a { color: var(--accent); text-decoration: none; }
-
-    /* FADE */
-    .fade { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
-    .fade.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
-
-    /* RESPONSIVE */
-    @media (max-width: 860px) {
-      .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; }
-      .hero-card { display: none; }
-    }
-    @media (max-width: 560px) {
-      .nav-links { gap: 1.1rem; }
-      .featured-card { flex-direction: column; }
-      .stats { gap: 1.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Mehr-un-<span>Nisa</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
+  <button class="nav-toggle" id="navToggle">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
   <div class="hero-glow2"></div>
   <div class="hero-inner">
-    <div>
+    <div class="hero-text">
       <div class="hero-pill">Available for Junior Roles</div>
       <h1>Hi, I'm<br><span>Mehr-un-Nisa</span></h1>
       <p class="hero-sub">A junior web developer from Lahore, building responsive websites with HTML, CSS, JavaScript and WordPress. Currently levelling up my skills at Viper Academy.</p>
@@ -235,8 +39,8 @@
         <span class="chip">jQuery</span>
       </div>
       <div class="hero-btns">
-        <a href="#projects" class="btn btn-primary">View My Projects →</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <a href="projects.html" class="btn btn-primary">View My Projects →</a>
+        <a href="contact.html" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
     <div class="hero-card">
@@ -248,43 +52,33 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="fade">
-        <p class="sec-label">About Me</p>
-        <h2 class="sec-title">A little about myself</h2>
-        <div class="sec-line"></div>
-        <div class="about-text">
-          <p>I'm a <strong>junior web developer</strong> from Lahore, currently enrolled at Viper Academy where I'm building my frontend and backend skills every day. My journey in tech started with a Computer Science background in school and I've been growing ever since.</p>
-          <p>I completed a <strong>WordPress Development course at UET Lahore</strong> and have built over 10 real projects — from PHP/MySQL CRUD applications to interactive quizzes and responsive frontend pages.</p>
-          <p>I'm looking for my <strong>first professional opportunity</strong> where I can contribute, learn from experienced developers, and grow in a real work environment.</p>
-        </div>
-        <div class="stats">
-          <div><div class="stat-num">10+</div><div class="stat-lbl">Projects Built</div></div>
-          <div><div class="stat-num">2</div><div class="stat-lbl">Courses Done</div></div>
-          <div><div class="stat-num">2</div><div class="stat-lbl">Live Websites</div></div>
-        </div>
+<!-- QUICK STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-box fade">
+        <div class="stat-num">10+</div>
+        <div class="stat-lbl">Projects Built</div>
       </div>
-      <div class="fade d2">
-        <div class="info-box">
-          <h4>Personal Info</h4>
-          <div class="info-row"><span>Name</span><span>Mehr-un-Nisa</span></div>
-          <div class="info-row"><span>Location</span><span>Lahore, Pakistan</span></div>
-          <div class="info-row"><span>Phone</span><span>03700426680</span></div>
-          <div class="info-row"><span>Email</span><span>mehro200717@gmail.com</span></div>
-          <div class="info-row"><span>Languages</span><span>Urdu, English</span></div>
-          <div class="info-row"><span>Status</span><span style="color:#4ADE80;font-weight:600;">Open to Work ✓</span></div>
-        </div>
+      <div class="stat-box fade">
+        <div class="stat-num">2</div>
+        <div class="stat-lbl">Courses Completed</div>
+      </div>
+      <div class="stat-box fade">
+        <div class="stat-num">3</div>
+        <div class="stat-lbl">Live Websites</div>
+      </div>
+      <div class="stat-box fade">
+        <div class="stat-num">6+</div>
+        <div class="stat-lbl">Technologies Used</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- FEATURED SKILLS -->
 <section class="section" id="skills">
-  <div class="section-inner">
+  <div class="container">
     <div class="fade">
       <p class="sec-label">What I Know</p>
       <h2 class="sec-title">Technical Skills</h2>
@@ -297,7 +91,6 @@
           <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span>
           <span class="skill-tag">JavaScript</span><span class="skill-tag">jQuery</span>
           <span class="skill-tag">Bootstrap 5</span><span class="skill-tag">Responsive Design</span>
-          <span class="skill-tag">Flexbox</span><span class="skill-tag">CSS Grid</span>
         </div>
       </div>
       <div class="skill-box fade d1">
@@ -305,210 +98,103 @@
         <div class="skill-tags">
           <span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span>
           <span class="skill-tag">CRUD Operations</span><span class="skill-tag">PHP OOP</span>
-          <span class="skill-tag">Sessions</span>
         </div>
       </div>
       <div class="skill-box fade d2">
         <div class="skill-box-title">CMS & Tools</div>
         <div class="skill-tags">
           <span class="skill-tag">WordPress</span><span class="skill-tag">Theme Customisation</span>
-          <span class="skill-tag">Plugin Integration</span><span class="skill-tag">MS Word</span>
-          <span class="skill-tag">MS Excel</span>
+          <span class="skill-tag">Plugin Integration</span>
         </div>
       </div>
       <div class="skill-box fade d3">
         <div class="skill-box-title">Soft Skills</div>
         <div class="skill-tags">
           <span class="skill-tag">Fast Learner</span><span class="skill-tag">Team Player</span>
-          <span class="skill-tag">Detail-Oriented</span><span class="skill-tag">Problem Solver</span>
-          <span class="skill-tag">Deadline-Driven</span>
+          <span class="skill-tag">Problem Solver</span><span class="skill-tag">Detail-Oriented</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <div class="section-inner">
+<!-- FEATURED PROJECTS PREVIEW -->
+<section class="section bg2">
+  <div class="container">
     <div class="fade">
       <p class="sec-label">My Work</p>
-      <h2 class="sec-title">Projects</h2>
-      <p class="sec-desc">Real projects built during my courses — from PHP/MySQL apps to live deployed websites.</p>
+      <h2 class="sec-title">Featured Projects</h2>
       <div class="sec-line"></div>
     </div>
-
-    <div class="featured-card fade">
-      <div>
-        <div class="feat-label">⭐ Live Website</div>
+    <div class="featured-grid">
+      <div class="feat-card fade">
+        <div class="feat-card-top">
+          <div class="feat-icon">🌐</div>
+          <span class="live-pill">Live</span>
+        </div>
         <h3>Personal Portfolio</h3>
-        <p>This portfolio website — built from scratch using HTML, CSS and JavaScript and deployed live on GitHub Pages.</p>
-        <div class="tag-row"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">GitHub Pages</span><span class="ptag">Live</span></div>
+        <p>This portfolio website — built with HTML, CSS and JavaScript, deployed on GitHub Pages.</p>
+        <div class="feat-techs">
+          <span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span>
+        </div>
+        <a href="https://mehr-un-nisa07.github.io/" target="_blank" class="feat-link">Visit Site ↗</a>
       </div>
-      <a href="https://mehr-un-nisa07.github.io/" target="_blank" class="live-btn">Visit Site ↗</a>
+      <div class="feat-card fade d1">
+        <div class="feat-card-top">
+          <div class="feat-icon">🎓</div>
+          <span class="live-pill">Live</span>
+        </div>
+        <h3>EduNova Academy</h3>
+        <p>Full-stack academy platform with user registration, login, applications and admin panel.</p>
+        <div class="feat-techs">
+          <span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">Bootstrap</span>
+        </div>
+        <a href="http://edunova.free.nf" target="_blank" class="feat-link">Visit Live Site ↗</a>
+      </div>
+      <div class="feat-card fade d2">
+        <div class="feat-card-top">
+          <div class="feat-icon">🍽️</div>
+          <span class="live-pill">Live</span>
+        </div>
+        <h3>Lahore Flavors Restaurant</h3>
+        <p>Professional restaurant website with menu, gallery and contact — fully responsive HTML/CSS.</p>
+        <div class="feat-techs">
+          <span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span>
+        </div>
+        <a href="https://mehr-un-nisa07.github.io/lahore-flavors/" target="_blank" class="feat-link">Visit Live Site ↗</a>
+      </div>
     </div>
-
-    <div class="featured-card fade">
-      <div>
-        <div class="feat-label">⭐ Live Website</div>
-        <h3>WordPress Website — Media Core</h3>
-        <p>A live WordPress website with custom theme, plugin configuration and responsive layout — built during UET Lahore course.</p>
-        <div class="tag-row"><span class="ptag">WordPress</span><span class="ptag">Theme Customisation</span><span class="ptag">Plugins</span><span class="ptag">Responsive</span><span class="ptag">Live</span></div>
-      </div>
-      <a href="https://dev-media-core.pantheonsite.io/" target="_blank" class="live-btn">Visit Site ↗</a>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card fade">
-        <div class="project-icon">🎓</div>
-        <h3>EduNova Academy — CRUD App</h3>
-        <p>Full-stack academy platform with user registration, login, profile editing and job application system.</p>
-        <div class="project-techs"><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">Bootstrap</span><span class="tech">Sessions</span></div>
-      </div>
-      <div class="project-card fade d1">
-        <div class="project-icon">👤</div>
-        <h3>Student Portal</h3>
-        <p>Student management system with registration, login and database-driven CRUD operations using PHP OOP.</p>
-        <div class="project-techs"><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">OOP</span><span class="tech">Bootstrap</span></div>
-      </div>
-      <div class="project-card fade d2">
-        <div class="project-icon">✅</div>
-        <h3>To-Do List — PHP & MySQL</h3>
-        <p>Task manager with add, complete and delete functionality. All tasks stored in a MySQL database.</p>
-        <div class="project-techs"><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">JavaScript</span><span class="tech">Bootstrap</span></div>
-      </div>
-      <div class="project-card fade">
-        <div class="project-icon">🛒</div>
-        <h3>Smart Cart</h3>
-        <p>E-commerce cart with pricing, coupon codes, tax calculation and shipping logic using PHP OOP.</p>
-        <div class="project-techs"><span class="tech">PHP</span><span class="tech">OOP</span><span class="tech">Forms</span><span class="tech">Logic</span></div>
-      </div>
-      <div class="project-card fade d1">
-        <div class="project-icon">🖼️</div>
-        <h3>Image Gallery</h3>
-        <p>Responsive gallery with user login authentication, thumbnail browsing and custom CSS stylesheet.</p>
-        <div class="project-techs"><span class="tech">PHP</span><span class="tech">CSS</span><span class="tech">Auth</span><span class="tech">Responsive</span></div>
-      </div>
-      <div class="project-card fade d2">
-        <div class="project-icon">📝</div>
-        <h3>Online MCQ Quiz</h3>
-        <p>Interactive quiz with multiple-choice questions, live score tracking and results screen in vanilla JS.</p>
-        <div class="project-techs"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span><span class="tech">Bootstrap</span></div>
-      </div>
-      <div class="project-card fade">
-        <div class="project-icon">❓</div>
-        <h3>FAQ Accordion</h3>
-        <p>Clean animated FAQ page using Bootstrap accordion with custom hover states and card layout.</p>
-        <div class="project-techs"><span class="tech">HTML</span><span class="tech">Bootstrap 5</span><span class="tech">CSS</span></div>
-      </div>
-      <div class="project-card fade d1">
-        <div class="project-icon">⚡</div>
-        <h3>jQuery Events & Effects</h3>
-        <p>jQuery event handling, animations, show/hide effects and DOM manipulation practice project.</p>
-        <div class="project-techs"><span class="tech">jQuery</span><span class="tech">JavaScript</span><span class="tech">HTML</span><span class="tech">CSS</span></div>
-      </div>
-      <div class="project-card fade d2">
-        <div class="project-icon">🗒️</div>
-        <h3>To-Do List (HTML/JS)</h3>
-        <p>Frontend task app with JavaScript task management, Bootstrap styling and a clean gradient UI.</p>
-        <div class="project-techs"><span class="tech">HTML</span><span class="tech">JavaScript</span><span class="tech">Bootstrap</span></div>
-      </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="projects.html" class="btn btn-outline">View All Projects →</a>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section class="section" id="education">
-  <div class="section-inner">
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="text-align:center;">
     <div class="fade">
-      <p class="sec-label">Background</p>
-      <h2 class="sec-title">Education & Courses</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="edu-list">
-      <div class="edu-card fade">
-        <div><h4>Frontend Web Development</h4><p>Viper Academy, Lahore · HTML, CSS, JavaScript, PHP, MySQL, Bootstrap</p></div>
-        <div class="edu-right"><span class="edu-year">2026</span><span class="edu-badge">Completed</span></div>
-      </div>
-      <div class="edu-card fade">
-        <div><h4>Web Development – WordPress</h4><p>University of Engineering & Technology (UET), Lahore</p></div>
-        <div class="edu-right"><span class="edu-year">Nov 2025 – Jan 2026</span><span class="edu-badge">Completed</span></div>
-      </div>
-      <div class="edu-card fade">
-        <div><h4>Intermediate – ICS (Physics)</h4><p>Superior College, Lahore</p></div>
-        <div class="edu-right"><span class="edu-year">2023 – 2025</span><span class="edu-badge">Completed</span></div>
-      </div>
-      <div class="edu-card fade">
-        <div><h4>Matriculation – Computer Science</h4><p>Govt. School Awan Town, Lahore</p></div>
-        <div class="edu-right"><span class="edu-year">2021 – 2023</span><span class="edu-badge">Completed</span></div>
-      </div>
+      <h2 class="sec-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">Looking for a Junior Developer?</h2>
+      <p style="color:var(--muted);margin:1rem auto 2rem;max-width:480px;font-size:0.97rem;line-height:1.8;">I'm actively looking for my first professional opportunity. Let's talk!</p>
+      <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="section-inner">
-    <div class="fade">
-      <p class="sec-label">Get In Touch</p>
-      <h2 class="sec-title">Let's Work Together</h2>
-      <div class="sec-line"></div>
-    </div>
-    <div class="contact-grid">
-      <div class="fade">
-        <div class="contact-info">
-          <p>I'm actively looking for junior web developer roles — full-time or internship. If you're looking for someone hardworking, eager to learn, and ready to contribute from day one, feel free to reach out!</p>
-        </div>
-        <div class="contact-links">
-          <a href="mailto:mehro200717@gmail.com" class="contact-link">
-            <div class="contact-link-icon">✉</div>
-            <div><strong>mehro200717@gmail.com</strong><span>Email me anytime</span></div>
-          </a>
-          <a href="tel:03700426680" class="contact-link">
-            <div class="contact-link-icon">📞</div>
-            <div><strong>03700426680</strong><span>Call or WhatsApp</span></div>
-          </a>
-          <div class="contact-link">
-            <div class="contact-link-icon">📍</div>
-            <div><strong>Lahore, Pakistan</strong><span>Available locally & remotely</span></div>
-          </div>
-          <a href="https://mehr-un-nisa07.github.io/" target="_blank" class="contact-link">
-            <div class="contact-link-icon">🌐</div>
-            <div><strong>mehr-un-nisa07.github.io</strong><span>My portfolio</span></div>
-          </a>
-        </div>
-      </div>
-
-      <div class="contact-box fade d2">
-        <h3>Reach Me Directly</h3>
-        <p>The quickest way to reach me is via WhatsApp or email. I'm available and happy to discuss any opportunity!</p>
-        <a href="https://wa.me/923700426680" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:0.9rem;font-size:0.92rem;">
-          💬 WhatsApp Me
-        </a>
-        <a href="https://mail.google.com/mail/?view=cm&to=mehro200717@gmail.com&su=Job%20Opportunity&body=Hi%20Mehr-un-Nisa%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;font-size:0.92rem;">
-          ✉ Email via Gmail
-        </a>
-        <div style="margin-top:1.4rem;padding:1rem;background:var(--bg);border-radius:0.5rem;border:1px solid var(--border);">
-          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.3rem;font-weight:600;letter-spacing:0.5px;">OR COPY MY EMAIL</p>
-          <p style="font-size:0.9rem;color:var(--accent);font-weight:600;cursor:pointer;" onclick="navigator.clipboard.writeText('mehro200717@gmail.com');this.innerText='✓ Copied!';setTimeout(()=>this.innerText='mehro200717@gmail.com',2000)">mehro200717@gmail.com</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <span>© 2026 <strong>Mehr-un-Nisa</strong> · Junior Web Developer · Lahore, Pakistan</span>
-  <span>Built with HTML & CSS · <a href="mailto:mehro200717@gmail.com">mehro200717@gmail.com</a></span>
+  <div class="container footer-inner">
+    <div class="footer-logo">Mehr-un-<span>Nisa</span></div>
+    <p style="font-size:0.81rem;color:var(--muted);margin-top:0.3rem;">Junior Web Developer · Lahore, Pakistan</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Mehr-un-Nisa · Built with HTML & CSS</p>
+  </div>
 </footer>
 
-<script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>

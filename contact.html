@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Mehr-un-Nisa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Mehr-un-<span>Nisa</span></div>
+  <button class="nav-toggle" id="navToggle">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="page-hero-label">Get In Touch</p>
+    <h1 class="page-hero-title">Contact Me</h1>
+    <p style="color:var(--muted);font-size:0.95rem;margin-top:0.8rem;">I'm actively looking for junior web developer roles. Feel free to reach out!</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="fade">
+        <p class="sec-label">Let's Talk</p>
+        <h2 class="sec-title">Let's Work Together</h2>
+        <div class="sec-line"></div>
+        <div class="contact-info">
+          <p>I'm looking for junior web developer roles — full-time or internship. If you're looking for someone hardworking, eager to learn, and ready to contribute from day one, I'd love to hear from you!</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:mehro200717@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉</div>
+            <div><strong>mehro200717@gmail.com</strong><span>Email me anytime</span></div>
+          </a>
+          <a href="tel:03700426680" class="contact-link">
+            <div class="contact-link-icon">📞</div>
+            <div><strong>03700426680</strong><span>Call or WhatsApp</span></div>
+          </a>
+          <div class="contact-link">
+            <div class="contact-link-icon">📍</div>
+            <div><strong>Lahore, Pakistan</strong><span>Available locally & remotely</span></div>
+          </div>
+          <a href="https://mehr-un-nisa07.github.io/" target="_blank" class="contact-link">
+            <div class="contact-link-icon">🌐</div>
+            <div><strong>mehr-un-nisa07.github.io</strong><span>My portfolio</span></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-box fade d2" style="margin-top:17vh;">
+        <h3>Reach Me Directly</h3>
+        <p>The quickest way to reach me is via WhatsApp or email. I'm available and happy to discuss any opportunity!</p>
+        <a href="https://wa.me/923700426680" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:0.9rem;">
+          💬 WhatsApp Me
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&to=mehro200717@gmail.com&su=Job%20Opportunity&body=Hi%20Mehr-un-Nisa%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;">
+          ✉ Email via Gmail
+        </a>
+        <div style="margin-top:1.4rem;padding:1rem;background:var(--bg2);border-radius:0.5rem;border:1px solid var(--border);">
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.3rem;font-weight:600;letter-spacing:0.5px;">OR COPY MY EMAIL</p>
+          <p id="copyEmail" style="font-size:0.9rem;color:var(--accent);font-weight:600;cursor:pointer;" onclick="navigator.clipboard.writeText('mehro200717@gmail.com');this.innerText='✓ Copied!';setTimeout(()=>this.innerText='mehro200717@gmail.com',2000)">mehro200717@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">Mehr-un-<span>Nisa</span></div>
+    <p style="font-size:0.81rem;color:var(--muted);margin-top:0.3rem;">Junior Web Developer · Lahore, Pakistan</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Mehr-un-Nisa · Built with HTML & CSS</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

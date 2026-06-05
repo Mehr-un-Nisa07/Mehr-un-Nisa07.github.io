@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Mehr-un-Nisa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Mehr-un-<span>Nisa</span></div>
+  <button class="nav-toggle" id="navToggle">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="page-hero-label">What I've Built</p>
+    <h1 class="page-hero-title">My Projects</h1>
+    <p style="color:var(--muted);font-size:0.95rem;margin-top:0.8rem;">Real projects built during my courses — from PHP/MySQL apps to live deployed websites.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- FILTER BUTTONS -->
+    <div class="projects-filter fade" id="filterBtns">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="live">Live Sites</button>
+      <button class="filter-btn" data-filter="php">PHP / MySQL</button>
+      <button class="filter-btn" data-filter="html">HTML / CSS / JS</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- LIVE PROJECTS -->
+      <div class="project-card fade" data-cat="live html">
+        <div class="project-card-top">
+          <div class="project-icon">🌐</div>
+          <span class="live-pill">Live ↗</span>
+        </div>
+        <h3>Personal Portfolio Website</h3>
+        <p>This portfolio website — built from scratch with HTML, CSS and JavaScript. Deployed live on GitHub Pages.</p>
+        <div class="project-techs"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span><span class="tech">GitHub Pages</span></div>
+        <a href="https://mehr-un-nisa07.github.io/" target="_blank" class="project-link">Visit Live Site ↗</a>
+      </div>
+
+      <div class="project-card fade d1" data-cat="live html">
+        <div class="project-card-top">
+          <div class="project-icon">🍽️</div>
+          <span class="live-pill">Live ↗</span>
+        </div>
+        <h3>Lahore Flavors — Restaurant Website</h3>
+        <p>Professional restaurant website with menu section, photo gallery, about page and contact form. Fully responsive.</p>
+        <div class="project-techs"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span><span class="tech">Responsive</span></div>
+        <a href="https://mehr-un-nisa07.github.io/lahore-flavors/" target="_blank" class="project-link">Visit Live Site ↗</a>
+      </div>
+
+      <div class="project-card fade d2" data-cat="live html">
+        <div class="project-card-top">
+          <div class="project-icon">🌍</div>
+          <span class="live-pill">Live ↗</span>
+        </div>
+        <h3>WordPress Website — Media Core</h3>
+        <p>Live WordPress website with custom theme, plugin configuration and responsive layout — built during UET course.</p>
+        <div class="project-techs"><span class="tech">WordPress</span><span class="tech">Theme</span><span class="tech">Plugins</span><span class="tech">Responsive</span></div>
+        <a href="https://dev-media-core.pantheonsite.io/" target="_blank" class="project-link">Visit Live Site ↗</a>
+      </div>
+
+      <!-- PHP PROJECTS -->
+      <div class="project-card fade" data-cat="php">
+        <div class="project-card-top">
+          <div class="project-icon">🎓</div>
+          <span class="live-pill">Live ↗</span>
+        </div>
+        <h3>EduNova Academy — Full-Stack CRUD</h3>
+        <p>Multi-page academy platform with user registration, login, program applications and a full admin panel to accept/reject students.</p>
+        <div class="project-techs"><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">Bootstrap</span><span class="tech">Sessions</span><span class="tech">OOP</span></div>
+        <a href="http://edunova.free.nf" target="_blank" class="project-link">Visit Live Site ↗</a>
+      </div>
+
+      <div class="project-card fade d1" data-cat="php">
+        <div class="project-card-top">
+          <div class="project-icon">👤</div>
+        </div>
+        <h3>Student Portal</h3>
+        <p>Student management system with registration, login, profile editing and database-driven CRUD operations using PHP OOP.</p>
+        <div class="project-techs"><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">OOP</span><span class="tech">Bootstrap</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+      <div class="project-card fade d2" data-cat="php">
+        <div class="project-card-top">
+          <div class="project-icon">✅</div>
+        </div>
+        <h3>To-Do List — PHP & MySQL</h3>
+        <p>Task manager with add, complete and delete functionality. All tasks stored and managed in a MySQL database.</p>
+        <div class="project-techs"><span class="tech">PHP</span><span class="tech">MySQL</span><span class="tech">JavaScript</span><span class="tech">Bootstrap</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+      <div class="project-card fade" data-cat="php">
+        <div class="project-card-top">
+          <div class="project-icon">🛒</div>
+        </div>
+        <h3>Smart Cart</h3>
+        <p>E-commerce cart with product pricing, coupon codes (SAVE10, FLAT5), tax calculation and shipping logic using PHP OOP.</p>
+        <div class="project-techs"><span class="tech">PHP</span><span class="tech">OOP</span><span class="tech">Forms</span><span class="tech">Logic</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+      <div class="project-card fade d1" data-cat="php">
+        <div class="project-card-top">
+          <div class="project-icon">🖼️</div>
+        </div>
+        <h3>Image Gallery</h3>
+        <p>Responsive gallery with user login authentication, thumbnail browsing and custom CSS stylesheet.</p>
+        <div class="project-techs"><span class="tech">PHP</span><span class="tech">CSS</span><span class="tech">Auth</span><span class="tech">Responsive</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+      <!-- HTML/JS PROJECTS -->
+      <div class="project-card fade" data-cat="html">
+        <div class="project-card-top">
+          <div class="project-icon">📝</div>
+        </div>
+        <h3>Online MCQ Quiz</h3>
+        <p>Interactive quiz with multiple-choice questions, live score tracking and results screen in vanilla JavaScript.</p>
+        <div class="project-techs"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span><span class="tech">Bootstrap</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+      <div class="project-card fade d1" data-cat="html">
+        <div class="project-card-top">
+          <div class="project-icon">❓</div>
+        </div>
+        <h3>FAQ Accordion</h3>
+        <p>Clean animated FAQ page using Bootstrap accordion with custom hover states and polished card layout.</p>
+        <div class="project-techs"><span class="tech">HTML</span><span class="tech">Bootstrap 5</span><span class="tech">CSS</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+      <div class="project-card fade d2" data-cat="html">
+        <div class="project-card-top">
+          <div class="project-icon">⚡</div>
+        </div>
+        <h3>jQuery Events & Effects</h3>
+        <p>Practical jQuery implementation — event handling, animations, show/hide effects and DOM manipulation.</p>
+        <div class="project-techs"><span class="tech">jQuery</span><span class="tech">JavaScript</span><span class="tech">HTML</span><span class="tech">CSS</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+      <div class="project-card fade" data-cat="html">
+        <div class="project-card-top">
+          <div class="project-icon">🗒️</div>
+        </div>
+        <h3>To-Do List (HTML/JS)</h3>
+        <p>Frontend task app with JavaScript task management, Bootstrap styling and a clean gradient UI.</p>
+        <div class="project-techs"><span class="tech">HTML</span><span class="tech">JavaScript</span><span class="tech">Bootstrap</span></div>
+        <span class="project-link" style="cursor:default;color:var(--muted);">Available on request</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo">Mehr-un-<span>Nisa</span></div>
+    <p style="font-size:0.81rem;color:var(--muted);margin-top:0.3rem;">Junior Web Developer · Lahore, Pakistan</p>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2026 Mehr-un-Nisa · Built with HTML & CSS</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    cards.forEach(card => {
+      if (f === 'all' || card.dataset.cat.includes(f)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
